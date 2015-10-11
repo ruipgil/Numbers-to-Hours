@@ -56,27 +56,14 @@ Clean
 #
 # Compila e gera a versão gráfica do transdutor que traduz letra a letra
 echo "Compiling src"
-Compile horas $SRC_DIR
-Compile minutos $SRC_DIR
-Compile separador $SRC_DIR
+for file in $SRC_DIR/*.txt; do
+  name=${file##*/}
+  base=${name%.txt}
+  Compile $base $SRC_DIR
+done
 
-Compile uma_duas $SRC_DIR
-Compile um_dois $SRC_DIR
-Compile tres_nove $SRC_DIR
-Compile dez_dezanove $SRC_DIR
-Compile meio_dia $SRC_DIR
-Compile vinte $SRC_DIR
-Compile zero $SRC_DIR
-Compile trinta_cinquenta $SRC_DIR
-Compile tres_nove $SRC_DIR
-Compile zero_muted $SRC_DIR
-Compile duplo_zero $SRC_DIR
-Compile numero_composto $SRC_DIR
-Compile um_quarto $SRC_DIR
-Compile zero_optional $SRC_DIR
 
-Compile horas_d $SRC_DIR 
-
+echo "Making unions and concatenations"
 Union zero_muted um_dois zero_dois
 Union zero_dois tres_nove zero_nove
 
@@ -97,7 +84,7 @@ Union uma_nove zero zero_nove_unmuted_f
 Concat zero_optional zero_nove_unmuted um_digito
 Concat zero_optional zero_nove_unmuted_f um_digito_f
 
-Concat vinte zero_nove_ncomposto vinte_complete
+#Concat vinte zero_nove_ncomposto vinte_complete
 Concat vinte zero_nove_ncomposto_f vinte_complete_f
 
 Union vinte trinta_cinquenta vinte_cinquenta
@@ -106,22 +93,25 @@ Concat vinte_cinquenta zero_nove_ncomposto vinte_cinquenta_complete
 # Compiles minutes transducer
 Union dez_dezanove um_quarto minutos_d_1
 Union minutos_d_1 vinte_cinquenta_complete minutos_d_2
-Union minutos_d_2 um_digito_f minutos_d_final
-Draw minutos_d_final
+Union minutos_d_2 um_digito_f minutos
+rm $BUILD_DIR/minutos_d_1.fst $BUILD_DIR/minutos_d_2.fst
+Draw minutos
 
 # Compiles hours transducer
 Union dez_dezanove meio_dia horas_d_1
 Union horas_d_1 vinte_complete_f horas_d_2
-Union horas_d_2 um_digito horas_d_final
-Draw horas_d_final
+Union horas_d_2 um_digito horas
+rm $BUILD_DIR/horas_d_1.fst $BUILD_DIR/horas_d_2.fst
+Draw horas
 
 
-Debug "Building final transducer"
-Concat horas_d_final separador t_intermedio
-Concat t_intermedio minutos_d_final trans_final
+echo "Building final transducer"
+Concat horas separador t_intermedio
+Concat t_intermedio minutos trans_final
+rm $BUILD_DIR/t_intermedio.fst
 Draw trans_final
 
-Debug "Building inverted transducer"
+echo "Building inverted transducer"
 fstinvert $BUILD_DIR/trans_final.fst > $BUILD_DIR/trans_final_i.fst
 Draw trans_final_i
 
