@@ -73,8 +73,9 @@ Compile zero_muted $SRC_DIR
 Compile duplo_zero $SRC_DIR
 Compile numero_composto $SRC_DIR
 Compile um_quarto $SRC_DIR
+Compile zero_optional $SRC_DIR
 
-Compile horas_d $SRC_DIR
+Compile horas_d $SRC_DIR 
 
 Union zero_muted um_dois zero_dois
 Union zero_dois tres_nove zero_nove
@@ -82,28 +83,36 @@ Union zero_dois tres_nove zero_nove
 Union zero_muted uma_duas zero_duas
 Union zero_duas tres_nove zero_nove_f
 
-Concat vinte numero_composto vinte_1
-Concat vinte_1 zero_nove vinte_complete
-Draw vinte_complete
+Union um_dois tres_nove um_nove
+Union um_nove zero_muted zero_nove
+Concat numero_composto zero_nove zero_nove_ncomposto
 
-Concat vinte numero_composto vinte_f_1
-Concat vinte_f_1 zero_nove_f vinte_complete_f
-Draw vinte_complete_f
+Union uma_duas tres_nove uma_nove
+Union uma_nove zero_muted zero_nove_f
+Concat numero_composto uma_nove zero_nove_ncomposto_f
 
-Union vinte trinta_cinquenta vinte_cinquenta_1
-Concat vinte_cinquenta_1 numero_composto vinte_cinquenta_2
-Concat vinte_cinquenta_2 zero_nove vinte_cinquenta_complete
+Union um_nove zero zero_nove_unmuted
+Union uma_nove zero zero_nove_unmuted_f
+
+Concat zero_optional zero_nove_unmuted um_digito
+Concat zero_optional zero_nove_unmuted_f um_digito_f
+
+Concat vinte zero_nove_ncomposto vinte_complete
+Concat vinte zero_nove_ncomposto_f vinte_complete_f
+
+Union vinte trinta_cinquenta vinte_cinquenta
+Concat vinte_cinquenta zero_nove_ncomposto vinte_cinquenta_complete
 
 # Compiles minutes transducer
 Union dez_dezanove um_quarto minutos_d_1
 Union minutos_d_1 vinte_cinquenta_complete minutos_d_2
-Union minutos_d_2 duplo_zero minutos_d_final
+Union minutos_d_2 um_digito_f minutos_d_final
 Draw minutos_d_final
 
 # Compiles hours transducer
 Union dez_dezanove meio_dia horas_d_1
 Union horas_d_1 vinte_complete_f horas_d_2
-Union horas_d_2 duplo_zero horas_d_final
+Union horas_d_2 um_digito horas_d_final
 Draw horas_d_final
 
 
