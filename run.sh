@@ -52,9 +52,6 @@ Concat() {
 
 Clean
 
-################### Tradutores de tradução ################
-#
-# Compila e gera a versão gráfica do transdutor que traduz letra a letra
 echo "Compiling src"
 for file in $SRC_DIR/*.txt; do
   name=${file##*/}
@@ -115,9 +112,7 @@ echo "Building inverted transducer"
 fstinvert $BUILD_DIR/trans_final.fst > $BUILD_DIR/trans_final_i.fst
 Draw trans_final_i
 
-################### Testa os tradutores ################
-#
-# Compila e gera a versão gráfica do transdutor que traduz Inglês em Português
+# Tests
 echo "Applying tests"
 Test 11_29 trans_final
 Test 12_30 trans_final
