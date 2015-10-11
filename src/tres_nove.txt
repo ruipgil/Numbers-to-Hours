@@ -1,0 +1,8 @@
+0 1 3 tres
+0 1 4 quatro
+0 1 5 cinco
+0 1 6 seis
+0 1 7 sete
+0 1 8 oito
+0 1 9 nove
+1

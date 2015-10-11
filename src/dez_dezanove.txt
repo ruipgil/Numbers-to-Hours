@@ -1,0 +1,12 @@
+0 1 1 eps
+1 2 0 dez
+1 2 1 onze
+1 2 2 doze
+1 2 3 treze
+1 2 4 catorze
+1 2 5 quinze
+1 2 6 dezasseis
+1 2 7 dezassete
+1 2 8 dezoito
+1 2 9 dezanove
+2

@@ -1,0 +1,6 @@
+0 1 nove nove
+1 2 e e
+2 3 trinta trinta
+3 4 e e
+4 5 seis seis
+5
