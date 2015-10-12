@@ -1,0 +1,6 @@
+O transdutor final é o bastante flexível e capaz de converter todos os casos testados.
+Os transdutores em versão de texto estão na pasta src. Os transdutores de teste na pasta tests. Todos os transdutores compilam para a pasta build.
+O transdutor final (em build/trans_final.(fst|pdf)) é gerado depois de vários passos, entre os quais a geração do transdutor para os minutos e para as horas.
+O transdutor para transformar as horas por extenso em horas na forma condensada (em build/trans_final_i.(fst|pdf)) é produzido usando a ferramenta fstinvert e o transdutor final.
+
+Rui Gil

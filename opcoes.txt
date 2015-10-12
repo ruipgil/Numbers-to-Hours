@@ -1,0 +1,12 @@
+Em linguagem corrente muitas vezes o "e" é subentendido e portanto omisso, por exemplo 21 pode é por vezes dito como "vinte um". Tendo isto em conta entendi por bem fornecer duas alternativas, como e sem o "e", assim 23 poderá terá como caminhos "vinte três" e "vinte e três".
+
+No que diz respeito às horas, 1:00 e 2:00 produz "uma e zero" e "duas e zero" respectivamente. Contudo 10:01 e 10:02 produz "dez e um" e "dez e dois". A concordância em género é feita apesar de as palavras horas e minutos estarem omissas.
+
+Horas e minutos podem ter apenas um digito. Horas têm de estar entre 0 (ou 00) e 29 (tem-se em conta que o enunciado refere que as horas e minutos são válidos para simplificar). Minutos têm de estar entre 0 (ou 00) e 59.
+
+Optei por não produzir as palavras "horas" e "minutos" pois, apesar de fácil, não fariam concordância em número caso o número fosse 1.
+
+De forma a não fazer um (ou dois) trandutores gigantes, com muito em comum, dividi o problema em pequenos trandutores que no processo de construção uno e concateno. Progressivamente vou obtendo trandutores mais complexos.
+Sussintamente, o trandutor final é atingindo fazendo a concatenação do trandutor das horas (gerado) pelo transdutor do separador (":") e pelo dos minutos (gerado). Os trandutores das horas e dos minutos são bastante parecidos, pelo que o processo é identico. O transdutor das horas é o resultado dos trandutores: números das dez às dezanove, meio dia, vinte horas (em que 21 é "vinte e? uma"), e todos os números com um digito (0, 1, ... 9, 00, 01, ..., 09); estes transdutores são também gerados apartir de outros transdutores mais simples.
+
+Rui Gil

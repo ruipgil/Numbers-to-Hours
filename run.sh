@@ -1,4 +1,5 @@
 #!/bin/bash
+# Rui Gil
 
 OUT=pdf
 BUILD_DIR=./build
